@@ -1,0 +1,51 @@
+{
+    "extends": "react-app",
+    "rules": {
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "prefer-destructuring": [
+            "error",
+            {
+                "array": false,
+                "object": true
+            },
+            {
+                "enforceForRenamedProperties": false
+            }
+        ],
+        "no-dupe-keys": "error",
+        "no-duplicate-case": "error",
+        "no-empty": "error",
+        "no-irregular-whitespace": "error",
+        "no-unexpected-multiline": "error",
+        "no-unreachable": "error",
+        "curly": "error",
+        "semi": "error",
+        "default-case": "error",
+        "no-param-reassign": "error",
+        "no-self-assign": "error",
+        "no-unused-expressions": "warn",
+        "yoda": "error",
+        "no-undef": "error",
+        "no-undefined": "error",
+        "camelcase": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-trailing-spaces": "error",
+        "no-var": "error",
+        "no-useless-constructor": "error",
+        "prefer-rest-params": "error",
+        "prefer-const": "error",
+        "no-duplicate-imports": "error",
+        "arrow-spacing": "error",
+        "require-await": "error",
+        "no-self-compare": "error",
+        "no-return-assign": "error",
+        "no-new-wrappers": "error",
+        "no-eval": "error",
+        "no-empty-function": "warn",
+        "no-use-before-define": "error",
+        "@typescript-eslint/explicit-function-return-type": 0
+    }
+}
