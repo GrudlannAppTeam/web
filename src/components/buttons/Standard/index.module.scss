@@ -1,0 +1,21 @@
+@import '../../../styles/index.scss';
+
+.button {
+    display: block;
+    background-color: $green;
+    color: $light;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: .2s;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+        background-color: $greenDark;
+        color: $light;
+        text-decoration: none;
+    }
+}
