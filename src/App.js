@@ -1,16 +1,9 @@
 import React from 'react';
-import Counter from './features/counter/Counter';
 import './App.css';
+import AuthRouter from './routers/AuthRouter';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Grudlann App</h1>
-        <Counter />
-      </header>
-    </div>
-  );
-}
+const App = () =>  {
+  return <AuthRouter />;
+};
 
 export default App;
