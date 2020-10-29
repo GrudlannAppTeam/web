@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className={styles.container}>
             <Link to="/">
                 <img src="logo.png" alt=""/>
-                GrundlanApp
+                Grundlan App
             </Link>
         </nav>
     );

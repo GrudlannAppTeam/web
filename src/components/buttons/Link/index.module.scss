@@ -1,0 +1,24 @@
+@import '../../../styles/index.scss';
+
+a.link {
+    display: block;
+    background-color: transparent;
+    color: $light;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: .2s;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    border: 2px solid $light;
+
+    &:hover {
+        background-color: $mainDark;
+        color: $light;
+        text-decoration: none;
+        letter-spacing: 5px;
+    }
+}

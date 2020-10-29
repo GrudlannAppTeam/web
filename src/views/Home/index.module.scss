@@ -5,10 +5,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 
     h2 {
         display: block;
-        color: $dark;
+        color: $light;
         text-transform: uppercase;
         font-weight: bold;
         margin-top: 30px;
@@ -18,6 +19,10 @@
         @media (max-width: 600px) {
             font-size: 15px;
         }
+    }
+
+    .wrapper {
+        text-align: center;
     }
 
     img {
@@ -34,11 +39,21 @@
     }
 
     a {
-        width: 50%;
+        width: 40%;
         margin-top: 20px;
 
         @media (max-width: 600px) {
             width: 90%;
         }
     }
+}
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }

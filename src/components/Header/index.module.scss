@@ -1,0 +1,16 @@
+@import '../../styles/index.scss';
+
+.header {
+    font-size: 40px;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-align: center;
+    margin: 30px;
+    background-color: $mainDark;
+    color: $light;
+    padding: 10px;
+
+    @media screen and (max-width: 600px) {
+        font-size: 20px;
+    }
+}

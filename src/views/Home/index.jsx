@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from "framer-motion";
 
-import Button from '../../components/buttons/Standard';
+import Link from '../../components/buttons/Link';
 
 import styles from './index.module.scss';
 
@@ -12,10 +13,19 @@ const propTypes = {
 const HomePage = () => {
     return (
         <div className={styles.container}>
-            <img src='logo.png' alt=''/>
+            <video autoPlay loop muted poster='home.png' >
+                <source src="video.mp4" type="video/mp4" />
+            </video>
+            <motion.div
+                animate={{ rotate: [0, -80, 0] }}
+                transition={{ ease: "easeOut", duration: 3 }}
+                className={styles.wrapper}
+            >
+                <img src='logo.png' alt=''/>
+            </motion.div>
             <h2>Grundlan App - Drink With Us!</h2>
-            <Button text='logowanie' target='/login'/>
-            <Button text='rejestracja' target='/register'/>
+            <Link text='logowanie' target='/login'/>
+            <Link text='rejestracja' target='/register'/>
         </div>
     );
 };
