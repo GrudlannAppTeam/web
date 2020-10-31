@@ -8,18 +8,25 @@ const propTypes = {
     props: PropTypes.object,
 };
 
-const TextInput = ({ name, label, register, defaultValue, type, error, validateObject }) => {
+const TextInput = ({ name, label, defaultValue, type, error, outline, register }) => {
+    console.log(error);
     return (
         <div className={styles.container}>
             <input
                 type={type}
                 name={name}
                 defaultValue={defaultValue}
-                ref={register(validateObject)}
-                className={clsx(styles.input, error && styles.error)}
+                ref={register}
+                className={
+                    clsx(
+                        styles.input,
+                        error && styles.error,
+                        outline && styles.outline,
+                    )
+                }
             />
             <small className={styles.label}>{label}</small>
-            {error && <small className={styles.error}>{error?.type === 'required' && 'Pole wymagane'}</small>}
+            {error && <small className={styles.error}>{error?.type === 'required' ? 'Pole wymagane' : error.message}</small>}
         </div>
     );
 };

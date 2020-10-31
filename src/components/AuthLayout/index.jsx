@@ -1,11 +1,9 @@
 import React from 'react';
-import Navbar from '../Navbar';
 import styles from './index.module.scss';
 
-const Layout = ({ children }) => {
+const AuthLayout = ({ children }) => {
     return (
         <>
-            <Navbar />
             <div className={styles.container}>
                 {children}
             </div>
@@ -13,4 +11,4 @@ const Layout = ({ children }) => {
     );
 };
 
-export default Layout;
+export default AuthLayout;

@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 100%;
     position: relative;
-    margin: 20px;
+    margin: 20px 0;
 
     small.label {
         position: absolute;
@@ -15,6 +15,7 @@
         font-weight: bold;
         font-size: 14px;
         transition: .2s;
+        color: $light;
     }
 
     small.error {
@@ -26,14 +27,15 @@
 
     .input {
         border: none;
-        border-bottom: 3px solid $main;
-        padding: 15px 20px 15px 100px;
+        border-bottom: 3px solid $light;
+        padding: 15px 20px 15px 150px;
         transition: .2s;
         outline: none;
-        background-color: #fff;
+        background-color: $light;
+        color: $light;
 
         &.error {
-            border: 4px solid red;
+            border-color: red;
         }
 
         &:focus {
@@ -44,5 +46,9 @@
     .input:focus + small.label {
         transform: translateY(-30px);
         font-size: 12px;
+    }
+
+    .outline {
+        background-color: transparent;
     }
 }

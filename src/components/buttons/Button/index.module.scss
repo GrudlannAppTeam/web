@@ -23,7 +23,7 @@
 }
 
 .outline {
-    background-color: white;
+    background-color: transparent;
     color: $main;
     border: 3px solid $main;
 
@@ -31,5 +31,16 @@
         color: $main;
         text-decoration: none;
         letter-spacing: 5px;
+    }
+}
+
+.light {
+    color: $light;
+    border-color: $light;
+
+    &:hover {
+        background-color: $main;
+        color: $light;
+        border-color: $light;
     }
 }

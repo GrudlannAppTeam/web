@@ -8,8 +8,20 @@ const propTypes = {
     props: PropTypes.object,
 };
 
-const Link = ({ text, target, className, outline }) => {
-    return <button className={clsx(styles.button, className, outline && styles.outline)} to={target}>{text}</button>;
+const Link = ({ text, target, className, outline, color }) => {
+    return (
+        <button
+            className={clsx(
+                styles.button,
+                className,
+                outline && styles.outline,
+                styles[color]
+            )}
+            to={target}
+        >
+            {text}
+        </button>
+    );
 };
 
 Link.propTypes = propTypes;
