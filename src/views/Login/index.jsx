@@ -36,7 +36,7 @@ const LoginPage = () => {
                         outline
                     />
                     <TextInput
-                        label='password'
+                        label='Hasło'
                         name='password'
                         type='password'
                         register={register({ required: true })}
