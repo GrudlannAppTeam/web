@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 
 import Home from '../../views/Home';
 import Login from '../../views/Login';
@@ -8,15 +8,13 @@ import AuthLayout from '../../components/AuthLayout';
 
 const AuthRouter = () => {
     return (
-        <Router>
+        <Switch>
             <AuthLayout>
-                <Switch>
-                    <Route exact path="/" name="Hello page" component={Home} />
-                    <Route exact path="/login" name="Sign In Page" component={Login}/>
-                    <Route exact path="/register" name="Sign Up Page" component={Register}/>
-                </Switch>
+                <Route exact path="/" name="Hello page" component={Home} />
+                <Route exact path="/login" name="Sign In Page" component={Login}/>
+                <Route exact path="/register" name="Sign Up Page" component={Register}/>
             </AuthLayout>
-        </Router>
+        </Switch>
     );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import AuthRouter from './routers/AuthRouter';
+import RootRouter from './routers/RootRouter';
 
 const App = () =>  {
-  return <AuthRouter />;
+  return <RootRouter />;
 };
 
 export default App;
