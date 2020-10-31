@@ -10,7 +10,7 @@ https://github.com/GrudlannAppTeam/web/projects/2
 ## Server
 
 The project is connected to automatic building on the Heroku server and available at: <br/>
-https://grudlann-app.herokuapp.com
+https://grudlann-web.herokuapp.com
 
 ## Docker image
 
