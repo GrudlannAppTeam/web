@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './index.module.scss';
 
 const propTypes = {
-    props: PropTypes.object,
+    text: PropTypes.string,
 };
 
 const Header = ({ text }) => {

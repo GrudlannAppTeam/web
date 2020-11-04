@@ -5,7 +5,13 @@ import clsx from 'clsx';
 import styles from './index.module.scss';
 
 const propTypes = {
-    props: PropTypes.object,
+    name: PropTypes.string,
+    label: PropTypes.string,
+    defaultValue: PropTypes.string,
+    type: PropTypes.string,
+    error: PropTypes.string,
+    outline: PropTypes.bool,
+    register: PropTypes.object,
 };
 
 const TextInput = ({ name, label, defaultValue, type, error, outline, register }) => {

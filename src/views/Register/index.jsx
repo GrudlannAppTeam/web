@@ -8,6 +8,7 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 import TextInput from '../../components/inputs/Text';
 import Button from '../../components/buttons/Button';
+import VideoBackground from '../../components/VideoBackground';
 
 import styles from './index.module.scss';
 
@@ -21,13 +22,19 @@ const RegisterPage = () => {
 
     return (
         <div className={styles.wrapper}>
-            <video autoPlay loop muted poster='home.png' >
-                <source src="video.mp4" type="video/mp4" />
-            </video>
+            <VideoBackground />
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <small className={styles.start}><Link to='/'><FontAwesomeIcon icon={faAngleLeft} size='lg'/> Strona startowa</Link></small>
                 <small className={styles.title}>Rejestracja</small>
+                    <TextInput
+                        type='text'
+                        label='Nick'
+                        name='nick'
+                        register={register({ required: true })}
+                        error={errors.nick}
+                        outline
+                    />
                     <TextInput
                         type='email'
                         label='Email'
