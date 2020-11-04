@@ -5,10 +5,14 @@ import clsx from 'clsx';
 import styles from './index.module.scss';
 
 const propTypes = {
-    props: PropTypes.object,
+    text: PropTypes.string,
+    onClick: PropTypes.func,
+    className: PropTypes.string,
+    outline: PropTypes.bool,
+    color: PropTypes.oneOf(['light']),
 };
 
-const Link = ({ text, target, className, outline, color }) => {
+const Link = ({ text, onClick, className, outline, color }) => {
     return (
         <button
             className={clsx(
@@ -17,7 +21,7 @@ const Link = ({ text, target, className, outline, color }) => {
                 outline && styles.outline,
                 styles[color]
             )}
-            to={target}
+            onClick={onClick}
         >
             {text}
         </button>

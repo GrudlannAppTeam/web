@@ -6,7 +6,9 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import styles from './index.module.scss';
 
 const propTypes = {
-    props: PropTypes.object,
+    text: PropTypes.string,
+    target: PropTypes.string,
+    className: PropTypes.string,
 };
 
 const Link = ({ text, target, className }) => {
