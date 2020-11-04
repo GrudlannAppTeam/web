@@ -1,0 +1,18 @@
+@import '../../../styles/index.scss';
+
+.start {
+    font-size: 10px;
+    text-transform: uppercase;
+
+    svg {
+        margin-right: 5px;
+    }
+
+    a {
+        color: $light;
+
+        &:hover {
+            color: $light;
+        }
+    }
+}

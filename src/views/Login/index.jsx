@@ -32,11 +32,11 @@ const LoginPage = () => {
                         label='Email'
                         name='email'
                         register={register({ required: true })}
-                        error={errors.login}
+                        error={errors.email}
                         outline
                     />
                     <TextInput
-                        label='password'
+                        label='Hasło'
                         name='password'
                         type='password'
                         register={register({ required: true })}
