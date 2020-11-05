@@ -15,7 +15,6 @@ const propTypes = {
 };
 
 const TextInput = ({ name, label, defaultValue, type, error, outline, register }) => {
-    console.log(error);
     return (
         <div className={styles.container}>
             <input
