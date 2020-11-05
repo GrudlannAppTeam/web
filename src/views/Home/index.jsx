@@ -13,9 +13,6 @@ const propTypes = {
 const HomePage = () => {
     return (
         <div className={styles.container}>
-            <video autoPlay loop muted poster='home.png' >
-                <source src="video.mp4" type="video/mp4" />
-            </video>
             <motion.div
                 animate={{ rotate: [0, -80, 0] }}
                 transition={{ ease: "easeOut", duration: 3 }}
