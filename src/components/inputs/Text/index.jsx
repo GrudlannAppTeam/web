@@ -9,13 +9,12 @@ const propTypes = {
     label: PropTypes.string,
     defaultValue: PropTypes.string,
     type: PropTypes.string,
-    error: PropTypes.string,
+    error: PropTypes.object,
     outline: PropTypes.bool,
-    register: PropTypes.object,
+    register: PropTypes.func,
 };
 
 const TextInput = ({ name, label, defaultValue, type, error, outline, register }) => {
-    console.log(error);
     return (
         <div className={styles.container}>
             <input

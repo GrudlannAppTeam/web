@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-
 import TextInput from '../../components/inputs/Text';
 import Button from '../../components/buttons/Button';
-import VideoBackground from '../../components/VideoBackground';
+import TextLink from '../../components/buttons/TextLink';
 
 import styles from './index.module.scss';
 
@@ -22,10 +19,9 @@ const RegisterPage = () => {
 
     return (
         <div className={styles.wrapper}>
-            <VideoBackground />
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <small className={styles.start}><Link to='/'><FontAwesomeIcon icon={faAngleLeft} size='lg'/> Strona startowa</Link></small>
+                <TextLink target='/' withIcon text='Strona startowa' className={styles.start} />
                 <small className={styles.title}>Rejestracja</small>
                     <TextInput
                         type='text'

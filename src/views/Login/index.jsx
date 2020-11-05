@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-
 import TextInput from '../../components/inputs/Text';
 import Button from '../../components/buttons/Button';
+import TextLink from '../../components/buttons/TextLink';
 
 import styles from './index.module.scss';
 
@@ -21,12 +19,9 @@ const LoginPage = () => {
 
     return (
         <div className={styles.wrapper}>
-            <video autoPlay loop muted poster='home.png' >
-                <source src="video.mp4" type="video/mp4" />
-            </video>
             <div className={styles.container}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                    <small className={styles.start}><Link to='/'><FontAwesomeIcon icon={faAngleLeft} size='lg'/> Strona startowa</Link></small>
+                    <TextLink target='/' className={styles.start} withIcon text='Strona startowa' />
                     <small className={styles.title}>Logowanie</small>
                     <TextInput
                         label='Email'
