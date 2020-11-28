@@ -1,0 +1,59 @@
+@import '../../../styles/index.scss';
+
+.container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    h2 {
+        display: block;
+        color: $light;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 30px;
+        font-size: 25px;
+        text-align: center;
+
+        @media (max-width: 600px) {
+            font-size: 15px;
+        }
+    }
+
+    .wrapper {
+        text-align: center;
+    }
+
+    img {
+        width: 300px;
+        max-width: 70%;
+        border-radius: 50%;
+        -webkit-transition: -webkit-transform .8s ease-in-out;
+        transition: transform .8s ease-in-out;
+
+        &:hover {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    a {
+        width: 40%;
+        margin-top: 20px;
+
+        @media (max-width: 600px) {
+            width: 90%;
+        }
+    }
+}
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

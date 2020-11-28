@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
+import { Spinner } from 'reactstrap';
+
 import styles from './index.module.scss';
 
 const propTypes = {
@@ -12,22 +14,24 @@ const propTypes = {
     color: PropTypes.oneOf(['light']),
 };
 
-const Link = ({ text, onClick, className, outline, color }) => {
+const Button = ({ text, onClick, className, outline, color, isLoading = false }) => {
     return (
         <button
             className={clsx(
                 styles.button,
                 className,
                 outline && styles.outline,
-                styles[color]
+                styles[color],
+                isLoading && styles.loading
             )}
             onClick={onClick}
+            disabled={isLoading}
         >
-            {text}
+            {isLoading ? <Spinner animation="border" /> : text}
         </button>
     );
 };
 
-Link.propTypes = propTypes;
+Button.propTypes = propTypes;
 
-export default Link;
+export default Button;

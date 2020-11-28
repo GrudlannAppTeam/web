@@ -1,16 +1,16 @@
 import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import MainLayout from '../../components/MainLayout';
 import NotFound from '../../views/NotFound';
+import Home from '../../views/logged/Home';
 
 const MainRouter = () => {
     return (
         <Switch>
-            <MainLayout>
-                <Route exact path="/" name="Hello page" component={<div>Strona startowa użytkownika zalogowanego</div>} />
-                <Route name="404" component={NotFound}/>
-            </MainLayout>
+            <Redirect from="/login" to="/" />
+            <Route exact path="/" name="Hello page" component={Home} />
+            <Route exact path="/" name="Hello page" component={Home} />
+            <Route component={NotFound}/>
         </Switch>
     );
 };
