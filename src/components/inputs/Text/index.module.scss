@@ -19,7 +19,7 @@
     }
 
     small.error {
-        color: $error;
+        color: red;
         font-weight: bold;
         font-size: 10px;
         letter-spacing: 1px;
@@ -33,10 +33,9 @@
         outline: none;
         background-color: $light;
         color: $light;
-        background-color: transparent;
 
         &.error {
-            border-color: $error;
+            border-color: red;
         }
 
         &:focus {

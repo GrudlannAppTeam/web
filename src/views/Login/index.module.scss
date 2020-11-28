@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import '../../styles/index.scss';
 
 .wrapper {
     width: 100%;
@@ -72,13 +72,6 @@
 
         }
     }
-}
-
-small.error {
-    color: $error;
-    font-weight: bold;
-    font-size: 16px;
-    letter-spacing: 1px;
 }
 
 video {

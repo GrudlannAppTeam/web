@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import AuthRouter from '../AuthRouter';
@@ -9,11 +8,12 @@ const propTypes = {
 
 };
 
-const RootRouter = ({ user }) => {
+const RootRouter = () => {
+    const isUserLoggedIn = false;
     return (
         <Router>
             {
-                user ? (
+                isUserLoggedIn ? (
                     <MainRouter />
                 ) : (
                     <AuthRouter />
@@ -25,8 +25,4 @@ const RootRouter = ({ user }) => {
 
 RootRouter.propTypes = propTypes;
 
-const mapStateToProps = state => ({
-    user: state.auth.user,
-});
-
-export default connect(mapStateToProps)(RootRouter);
+export default RootRouter;

@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import '../../styles/index.scss';
 
 .wrapper {
     width: 100%;
@@ -71,14 +71,4 @@
 
         }
     }
-}
-
-.success {
-    color: $success;
-    font-weight: bold;
-}
-
-.error {
-    color: $error;
-    font-weight: bold;
 }
