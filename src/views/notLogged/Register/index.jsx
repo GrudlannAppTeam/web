@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { register as registerUser } from '../../../redux/methods/auth';
 
-import TextInput from '../../components/inputs/Text';
-import Button from '../../components/buttons/Button';
-import TextLink from '../../components/buttons/TextLink';
+import TextInput from '../../../components/inputs/Text';
+import Button from '../../../components/buttons/Button';
+import TextLink from '../../../components/buttons/TextLink';
 
 import styles from './index.module.scss';
 
@@ -13,9 +15,36 @@ const propTypes = {
     props: PropTypes.object,
 };
 
-const RegisterPage = () => {
-    const { register, handleSubmit, errors, watch } = useForm();
-    const onSubmit = data => console.log(data);
+const RegisterPage = ({ registerUser }) => {
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [ success, setSuccess ] = useState(false);
+
+    useEffect(() => {
+        return () => {
+            setIsLoading(false);
+        };
+    }, []);
+
+    const { register, handleSubmit, errors, setError, clearErrors, watch } = useForm({
+        mode: 'onSubmit',
+        reValidateMode: 'onChange',
+    });
+
+    const onSubmit = async data => {
+        clearErrors();
+        setIsLoading(true);
+        const response = await registerUser(data);
+        setIsLoading(false);
+
+        if(response === true) {
+            setSuccess(true);
+            setTimeout(() => {
+                setSuccess(false);
+            }, 3000);
+        } else if(response) {
+            setError('form', { message: response });
+        }
+    };
 
     return (
         <div className={styles.wrapper}>
@@ -55,7 +84,9 @@ const RegisterPage = () => {
                         register={register({ validate: (value) => value === watch('password') || "Podane hasła nie są identyczne" })}
                         outline
                     />
-                    <Button outline color='light' text='zarejestruj' className='mt-5'/>
+                    <Button outline color='light' text='zarejestruj' className='mt-5' isLoading={isLoading}/>
+                    {success && <small className={styles.success}>Rejestracja udana. Oczekuj maila z potwierdzeniem.</small>}
+                    {errors.form && <small className={styles.error}>{errors.form.message}</small>}
                     <small className={styles.underButton}>Posiadasz juz konto? <Link to='/login'>Zaloguj się!</Link></small>
                 </form>
             </div>
@@ -65,4 +96,8 @@ const RegisterPage = () => {
 
 RegisterPage.propTypes = propTypes;
 
-export default RegisterPage;
+const mapDispatch = {
+    registerUser,
+};
+
+export default connect(null, mapDispatch)(RegisterPage);

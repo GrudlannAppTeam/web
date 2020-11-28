@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from "framer-motion";
 
-import Link from '../../components/buttons/Link';
+import Link from '../../../components/buttons/Link';
 
 import styles from './index.module.scss';
 
@@ -23,6 +23,7 @@ const HomePage = () => {
             <h2>Grundlan App - Drink With Us!</h2>
             <Link text='logowanie' target='/login'/>
             <Link text='rejestracja' target='/register'/>
+            <Link text='zapomniałem hasła' target='/forgotPassword'/>
         </div>
     );
 };
