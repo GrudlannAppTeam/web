@@ -12,9 +12,10 @@ const propTypes = {
     error: PropTypes.object,
     outline: PropTypes.bool,
     register: PropTypes.func,
+    onFocus: PropTypes.func,
 };
 
-const TextInput = ({ name, label, defaultValue, type, error, outline, register }) => {
+const TextInput = ({ name, label, defaultValue, type, error, outline, register, onFocus }) => {
     return (
         <div className={styles.container}>
             <input
@@ -29,6 +30,7 @@ const TextInput = ({ name, label, defaultValue, type, error, outline, register }
                         outline && styles.outline,
                     )
                 }
+                onFocus={onFocus}
             />
             <small className={styles.label}>{label}</small>
             {error && <small className={styles.error}>{error?.type === 'required' ? 'Pole wymagane' : error.message}</small>}
