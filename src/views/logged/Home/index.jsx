@@ -24,9 +24,7 @@ const HomePage = ({ logout }) => {
                 <img src='logo.png' alt=''/>
             </motion.div>
             <h2>Grundlan App - Drink With Us!</h2>
-            <Link text='Aktywne degustacje' target='/active-tasting'/>
-            <Link text='Zakończone degustacje' target='/finished-tasting'/>
-            <Link text='Nowa degustacja' target='/new-tasting'/>
+            <Link text='Moja sala' target='/tasting'/>
             <Link text='Statystyki' target='/statistics'/>
             <Button text='Wyloguj' color='light' outline onClick={logout}/>
         </div>
