@@ -13,9 +13,10 @@ const propTypes = {
     outline: PropTypes.bool,
     register: PropTypes.func,
     onFocus: PropTypes.func,
+    maxLength: PropTypes.number,
 };
 
-const TextInput = ({ name, label, defaultValue, type, error, outline, register, onFocus }) => {
+const TextInput = ({ name, label, defaultValue, type, error, outline, register, onFocus, maxLength }) => {
     return (
         <div className={styles.container}>
             <input
@@ -23,6 +24,7 @@ const TextInput = ({ name, label, defaultValue, type, error, outline, register, 
                 name={name}
                 defaultValue={defaultValue}
                 ref={register}
+                maxLength={maxLength}
                 className={
                     clsx(
                         styles.input,

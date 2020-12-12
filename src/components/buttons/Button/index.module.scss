@@ -30,7 +30,7 @@
     &:hover {
         color: $main;
         text-decoration: none;
-        letter-spacing: 5px;
+        letter-spacing: 1.5px;
     }
 }
 
@@ -45,7 +45,38 @@
     }
 }
 
+.success {
+    color: $success;
+    border-color: $success;
+
+    &:hover {
+        color: $success;
+        border-color: $success;
+    }
+}
+
 .button.loading {
     cursor: wait;
     background-color: transparent;
+}
+
+.small {
+    padding: 10px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+
+    &:hover {
+        letter-spacing: 1px;
+    }
+}
+
+.active {
+    background-color: $main;
+    color: $light;
+    border-color: $light;
+
+    &:hover {
+        letter-spacing: 1px;
+        color: $light;
+    }
 }
