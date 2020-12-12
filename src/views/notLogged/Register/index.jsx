@@ -59,6 +59,7 @@ const RegisterPage = ({ registerUser }) => {
                         register={register({ required: true })}
                         error={errors.nick}
                         outline
+                        onFocus={() => clearErrors('form')}
                     />
                     <TextInput
                         type='email'
@@ -67,6 +68,7 @@ const RegisterPage = ({ registerUser }) => {
                         register={register({ required: true })}
                         error={errors.email}
                         outline
+                        onFocus={() => clearErrors('form')}
                     />
                     <TextInput
                         label='Hasło'
@@ -75,6 +77,7 @@ const RegisterPage = ({ registerUser }) => {
                         register={register({ required: true })}
                         error={errors.password}
                         outline
+                        onFocus={() => clearErrors('form')}
                     />
                     <TextInput
                         label='Powtórz hasło'
@@ -83,6 +86,7 @@ const RegisterPage = ({ registerUser }) => {
                         error={errors.repPassword}
                         register={register({ validate: (value) => value === watch('password') || "Podane hasła nie są identyczne" })}
                         outline
+                        onFocus={() => clearErrors('form')}
                     />
                     <Button outline color='light' text='zarejestruj' className='mt-5' isLoading={isLoading}/>
                     {success && <small className={styles.success}>Rejestracja udana. Oczekuj maila z potwierdzeniem.</small>}
