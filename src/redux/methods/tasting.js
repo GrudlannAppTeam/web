@@ -86,8 +86,8 @@ export const startTasting = id => async dispatch => {
     try {
         const config = await getConfig();
 
-        const response = await axios.put(`${apiUrl}api/tasting-rooms`, { tastingRoomId: id, status: true }, config);
-        console.log(response);
+        await axios.put(`${apiUrl}api/tasting-rooms`, { tastingRoomId: id, status: true }, config);
+
         dispatch(setActiveTastingRoomStatus(true));
         dispatch(setIsLoading(false));
     } catch (error) {
