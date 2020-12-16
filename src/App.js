@@ -12,9 +12,10 @@ const App = ({ setUser, user }) =>  {
             const token = getFromLocalStorage('token');
             const email = getFromLocalStorage('email');
             const nick = getFromLocalStorage('nick');
+            const tastingRoomId = getFromLocalStorage('tastingRoomId');
 
             if(token && email && nick) {
-                setUser({ email, nick });
+                setUser({ email, nick, tastingRoomId });
             };
         }
     }, []); //eslint-disable-line
