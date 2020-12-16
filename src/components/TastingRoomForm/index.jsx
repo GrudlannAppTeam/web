@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 
 import TextInput from '../../components/inputs/Text';
 import Button from '../../components/buttons/Button';
-import TextLink from '../../components/buttons/TextLink';
 
 import styles from './index.module.scss';
 
 const TastingRoomForm = ({ title, label, name, button, handleSubmit, onSubmit, register, clearErrors, errors, isLoading, maxLength }) => {
     return (
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            <TextLink target='/' className={styles.start} withIcon text='Strona główna' />
             <small className={styles.title}>{title}</small>
             <TextInput
                 label={label}
