@@ -11,10 +11,11 @@ const propTypes = {
     onClick: PropTypes.func,
     className: PropTypes.string,
     outline: PropTypes.bool,
-    color: PropTypes.oneOf(['light']),
+    color: PropTypes.oneOf(['light', 'success', 'active']),
+    small: PropTypes.bool,
 };
 
-const Button = ({ text, onClick, className, outline, color, isLoading = false }) => {
+const Button = ({ text, onClick, className, outline, color, isLoading = false, type, small = false }) => {
     return (
         <button
             className={clsx(
@@ -22,10 +23,12 @@ const Button = ({ text, onClick, className, outline, color, isLoading = false })
                 className,
                 outline && styles.outline,
                 styles[color],
-                isLoading && styles.loading
+                isLoading && styles.loading,
+                small && styles.small,
             )}
             onClick={onClick}
             disabled={isLoading}
+            type={type}
         >
             {isLoading ? <Spinner animation="border" /> : text}
         </button>
