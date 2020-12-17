@@ -42,6 +42,9 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
     return (
         <>
             {
+                activeTasting.code && <code className={styles.code}>Kod do dołączenia <span>{activeTasting.code}</span> </code>
+            }
+            {
                 activeTasting.isStart &&
                     <>
                         <code className={styles.subtitle}>Kliknij piwo aby wystawić recenzję!</code>

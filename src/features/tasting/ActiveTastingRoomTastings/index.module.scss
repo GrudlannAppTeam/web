@@ -87,3 +87,21 @@
         letter-spacing: 2px;
     }
 }
+
+.code {
+    margin-top: 30px;
+    color: white;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+        display: block;
+        padding: 10px 20px;
+        border: 1px solid white;
+        width: 200px;
+        margin: 0 auto 30px;
+    }
+}

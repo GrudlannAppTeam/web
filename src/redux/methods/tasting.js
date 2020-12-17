@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { getConfig } from '../../utils';
-import { setActiveTasting, setIsLoading, setIsInitialize, addBeerToState, setActiveTastingRoomStatus } from '../../features/tasting/slice';
+import { setActiveTasting, setIsLoading, setIsInitialize, addBeerToState, setActiveTastingRoomStatus, setActiveTastingRoomCode } from '../../features/tasting/slice';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -86,9 +86,10 @@ export const startTasting = id => async dispatch => {
     try {
         const config = await getConfig();
 
-        await axios.put(`${apiUrl}api/tasting-rooms`, { tastingRoomId: id, status: true }, config);
-
+        const res = await axios.put(`${apiUrl}api/tasting-rooms`, { tastingRoomId: id, status: true }, config);
+        console.log(res);
         dispatch(setActiveTastingRoomStatus(true));
+        dispatch(setActiveTastingRoomCode(res.data.code));
         dispatch(setIsLoading(false));
     } catch (error) {
         dispatch(setIsLoading(false));
@@ -104,7 +105,7 @@ export const closeTasting = id => async dispatch => {
 
         await axios.put(`${apiUrl}api/tasting-rooms`, { tastingRoomId: id, status: false }, config);
 
-        dispatch(setActiveTasting(false));
+        dispatch(setActiveTasting(null));
         localStorage.removeItem('tastingRoomId');
         dispatch(setIsLoading(false));
     } catch (error) {

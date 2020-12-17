@@ -13,9 +13,13 @@ export const login = data => async dispatch => {
         setLocalStorage('token', response.data.token);
         setLocalStorage('nick', response.data.nick);
         setLocalStorage('email', data.email);
-        setLocalStorage('tastingRoomId', response.data.tastingRoom.id);
+        if(response.data.tastingRoom) {
+            setLocalStorage('tastingRoomId', response.data.tastingRoom.id);
+            dispatch(setUser({ email: data.email, nick: response.data.nick, tastingRoomId: response.data.tastingRoom.id }));
+        } else {
+            dispatch(setUser({ email: data.email, nick: response.data.nick, tastingRoomId: response.data.tastingRoom.id }));
+        }
 
-        dispatch(setUser({ email: data.email, nick: response.data.nick, tastingRoomId: response.data.tastingRoom.id }));
         dispatch(setActiveTasting(response.data.tastingRoom));
     } catch (error) {
         return 'Niepoprawne dane';

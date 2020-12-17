@@ -22,10 +22,13 @@ export const tastingSlice = createSlice({
         },
         setActiveTastingRoomStatus(state, action) {
             state.activeTasting.isStart = action.payload;
+        },
+        setActiveTastingRoomCode(state, action) {
+            state.activeTasting.code = action.payload;
         }
     }
 });
 
-export const { setActiveTasting, setIsLoading, setIsInitialize, addBeerToState, setActiveTastingRoomStatus } = tastingSlice.actions;
+export const { setActiveTasting, setIsLoading, setIsInitialize, addBeerToState, setActiveTastingRoomStatus, setActiveTastingRoomCode } = tastingSlice.actions;
 
 export default tastingSlice.reducer;
