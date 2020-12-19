@@ -1,4 +1,4 @@
-# GrudlannApp-Web 
+# GrudlannApp-Web
 
 The project was created as part of classes at the State University of Applied Sciences in Legnica.
 
@@ -12,12 +12,6 @@ https://github.com/GrudlannAppTeam/web/projects/2
 The project is connected to automatic building on the Heroku server and available at: <br/>
 https://grudlann-web.herokuapp.com
 
-## Docker image
-
-The project is connected to auto build as a docker image and available at: <br/>
-```
-docker pull karoljaskot/grudlann-app
-```
 ## Run project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.

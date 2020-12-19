@@ -1,29 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import VideoBackground from './components/VideoBackground';
 import { setUser } from './features/auth/slice';
+import { getUserById } from './redux/methods/auth';
 import RootRouter from './routers/RootRouter';
-import { getFromLocalStorage } from './utils';
 import { connect } from 'react-redux';
+import { Spinner } from 'reactstrap';
+import styles from './index.module.scss';
 
-const App = ({ setUser, user }) =>  {
+const App = ({ user, getUserById }) =>  {
+    const [loading, setLaoding] = useState(true);
     useEffect(() => {
-        if(!user) {
-            const token = getFromLocalStorage('token');
-            const email = getFromLocalStorage('email');
-            const nick = getFromLocalStorage('nick');
-            const tastingRoomId = getFromLocalStorage('tastingRoomId');
+        const asyncFunc = async () => {
+            await getUserById();
+            setLaoding(false);
+        };
 
-            if(token && email && nick) {
-                setUser({ email, nick, tastingRoomId });
-            };
+        if(!user) {asyncFunc();}
+        else {
+            setLaoding(false);
         }
-    }, []); //eslint-disable-line
+    }, []);
 
     return (
         <>
             <VideoBackground />
-            <RootRouter />
+            {!loading ? <RootRouter /> : <div className={styles.loaderWrapper}><Spinner animation='border' color='light' /></div>}
         </>
     );
 };
@@ -34,6 +36,7 @@ const mapStateToProps = state => ({
 
 const mapDispatch = {
     setUser,
+    getUserById,
 };
 
 export default connect(mapStateToProps, mapDispatch)(App);

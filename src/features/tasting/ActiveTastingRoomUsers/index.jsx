@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 import styles from './index.module.scss';
 
 const ActiveTastingRoomUsers = ({ activeTasting }) => {
-    const handleClick = id => () => {
-        console.log(id);
-    };
-
     return (
         <>
             <div className={clsx('mb-5 text-center', styles.wrapper)}>
@@ -16,7 +12,6 @@ const ActiveTastingRoomUsers = ({ activeTasting }) => {
                     activeTasting.users.map(user =>
                         <p key={`${user.id}`} className={styles.row}>
                             <span className={styles.name}>{user.nick} {user.id === activeTasting.owner.id && <small>Właściciel</small>}</span>
-                            <button onClick={handleClick(user.id)} className={styles.subtitle}>usuń</button>
                         </p>
                     )
                 }

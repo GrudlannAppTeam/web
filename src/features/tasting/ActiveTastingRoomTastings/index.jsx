@@ -11,7 +11,7 @@ import TextInput from '../../../components/inputs/Text';
 
 import styles from './index.module.scss';
 
-const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, removeTasting, closeTasting }) => {
+const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, removeTasting, closeTasting, nick }) => {
     const { register, handleSubmit } = useForm();
     const [ reatedBeersIds, setRatedBeersIds ] = useState([]);
     const [modal, setModal] = useState(false);
@@ -29,8 +29,10 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
         removeTasting(activeTasting.id);
     };
 
-    const handleAddBeer = formData => {
-        addBeer({ ...formData, tastingRoomId: activeTasting.id });
+    const handleAddBeer = async formData => {
+        await addBeer({ ...formData, tastingRoomId: activeTasting.id });
+
+        setModal(false);
     };
 
     const handleStart = () => {
@@ -39,13 +41,16 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
 
     const closeBtn = <button className={styles.close} onClick={toggle}>&times;</button>;
 
+    const isOwner = activeTasting.owner.nick === nick;
+    const isTastingStarted = activeTasting.isStart;
+
     return (
         <>
             {
-                activeTasting.code && <code className={styles.code}>Kod do dołączenia <span>{activeTasting.code}</span> </code>
+                !isTastingStarted && activeTasting.code && <code className={styles.code}>Kod do dołączenia <span>{activeTasting.code}</span> </code>
             }
             {
-                activeTasting.isStart &&
+                isTastingStarted &&
                     <>
                         <code className={styles.subtitle}>Kliknij piwo aby wystawić recenzję!</code>
                         <p className={styles.subtitle}>Oceniłeś <b>{reatedBeersIds.length}</b> z <b>{activeTasting.beers.length}</b> piw!</p>
@@ -56,22 +61,22 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
                     activeTasting.beers.map(beer =>
                         <button
                             key={`${beer.id}`}
-                            disabled={!activeTasting.isStart || reatedBeersIds.includes(beer.id)}
-                            className={clsx(styles.row, !activeTasting.isStart && styles.notStarted, reatedBeersIds.includes(beer.id) && styles.rated)}
+                            disabled={!isTastingStarted || reatedBeersIds.includes(beer.id)}
+                            className={clsx(styles.row, !isTastingStarted && styles.notStarted, reatedBeersIds.includes(beer.id) && styles.rated)}
                             onClick={handleClick(beer.id)
                         }>
                             <p className={styles.name}>{beer.name}</p>
-                            {activeTasting.isStart && <code className={styles.subtitle}>{reatedBeersIds.includes(beer.id) ? 'Piwo ocenione' : 'Dodaj ocene'}</code>}
+                            {isTastingStarted && <code className={styles.subtitle}>{reatedBeersIds.includes(beer.id) ? 'Piwo ocenione' : 'Dodaj ocene'}</code>}
                         </button>
                     )
                 }
             </div>
             {
-                activeTasting.isStart &&
+                isTastingStarted && isOwner &&
                     <Button small outline color='light' onClick={handleClose} text='Zamknij degustacje' className='mb-2 w-100' isLoading={false}/>
             }
             {
-                !activeTasting.isStart &&
+                !isTastingStarted && isOwner &&
                     <>
                         <Button onClick={toggle} small outline color='light' text='Dodaj piwo' className='mb-2 w-100' isLoading={false}/>
                         <div className='d-flex'>
@@ -103,6 +108,7 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
 
 const mapStateToProps = state => ({
     activeTasting: state.tasting.activeTasting,
+    nick: state.auth.user.nick,
 });
 
 const mapDispatch = {
