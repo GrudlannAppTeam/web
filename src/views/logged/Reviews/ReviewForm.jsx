@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import styles from './index.module.scss';
+import styles from './ReviewForm.module.scss';
+import ReviewQuestion from './ReviewQuestion';
 
 const propTypes = {
     props: PropTypes.object,
@@ -34,6 +35,12 @@ class ReviewForm extends React.Component {
   render() { return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
+                {this.state.questions.map(question => (
+                    <ReviewQuestion
+                        name={question.name}
+                        answers={question.answers}
+                    />
+                ))}
             </div>
         </div>
     );
