@@ -21,7 +21,7 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
 
     const handleClick = id => () => {
         console.log(id);
-        history.push('/');
+        history.push('/review');
     };
 
     const handleClose = () => {
