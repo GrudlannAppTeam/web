@@ -11,7 +11,10 @@ const ReviewQuestion = (props) => {
         <div className={styles.wrapper}>
             <h2 className={styles.question}>{props.name}</h2>
             {props.answers.map(answer => (
-                <p className={styles.question}>{answer.name}</p>
+                <label className={styles.question}>
+                    {answer.name}
+                    <input type="radio"/>
+                </label>
             ))}
         </div>
     );
