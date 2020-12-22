@@ -12,7 +12,7 @@ const ReviewQuestion = (props) => {
         <div className={styles.wrapper}>
             <h2 className={styles.question}>{props.name}</h2>
             {props.answers.map(answer => (
-               <Button text={answer.name} key={answer.lp}/>
+               <Button text={answer.name} value={answer.lp} onClick={props.handleClick}/>
             ))}
         </div>
     );

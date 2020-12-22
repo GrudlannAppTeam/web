@@ -20,9 +20,20 @@ axios.interceptors.request.use(
 );
 
 class ReviewForm extends React.Component {
+    constructor () {
+        super();
+        this.handleClick = this.handleClick.bind(this);
+      }
     state = {
         questions: [],
+        answerId: 0,
     }
+    handleClick = (e) => {
+         this.setState({
+             answerId: e.target.value,
+         });
+         console.log(this.state.answerId);
+    };
      componentDidMount() {
         axios.get('https://grudlann-app.herokuapp.com/api/questions/answers',)
         .then((response) => {
@@ -37,6 +48,7 @@ class ReviewForm extends React.Component {
             <div className={styles.container}>
                 {this.state.questions.map(question => (
                     <ReviewQuestion
+                        handleClick={this.handleClick}
                         key={question.name}
                         name={question.name}
                         answers={question.answers}

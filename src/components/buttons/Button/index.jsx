@@ -15,7 +15,7 @@ const propTypes = {
     small: PropTypes.bool,
 };
 
-const Button = ({ text, onClick, className, outline, color, isLoading = false, type, small = false }) => {
+const Button = ({ text, onClick, className, outline, color, isLoading = false, type, small = false, value }) => {
     return (
         <button
             className={clsx(
@@ -29,6 +29,7 @@ const Button = ({ text, onClick, className, outline, color, isLoading = false, t
             onClick={onClick}
             disabled={isLoading}
             type={type}
+            value={value}
         >
             {isLoading ? <Spinner animation="border" /> : text}
         </button>
