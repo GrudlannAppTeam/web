@@ -9,9 +9,9 @@ const propTypes = {
 const ReviewQuestion = (props) => {
     return (
         <div className={styles.wrapper}>
-            <h2>{props.name}</h2>
+            <h2 className={styles.question}>{props.name}</h2>
             {props.answers.map(answer => (
-                <p>{answer.name}</p>
+                <p className={styles.question}>{answer.name}</p>
             ))}
         </div>
     );

@@ -37,6 +37,7 @@ class ReviewForm extends React.Component {
             <div className={styles.container}>
                 {this.state.questions.map(question => (
                     <ReviewQuestion
+                        key={question.name}
                         name={question.name}
                         answers={question.answers}
                     />
