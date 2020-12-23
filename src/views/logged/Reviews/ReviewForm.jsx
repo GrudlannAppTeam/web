@@ -27,12 +27,19 @@ class ReviewForm extends React.Component {
     state = {
         questions: [],
         answerId: 0,
+        beerId: 0,
+        hideQuestions: [],
     }
     handleClick = (e) => {
          this.setState({
              answerId: e.target.value,
+             beerId: localStorage.getItem('beerId')
          });
-         console.log(this.state.answerId);
+         axios
+      .post('https://grudlann-app.herokuapp.com/api/reviews', { beerId: this.state.beerId,
+      answerId: this.state.answerId})
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
     };
      componentDidMount() {
         axios.get('https://grudlann-app.herokuapp.com/api/questions/answers',)

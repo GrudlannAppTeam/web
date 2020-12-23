@@ -22,6 +22,7 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
     const handleClick = id => () => {
         console.log(id);
         history.push('/review');
+        localStorage.setItem('beerId', id);
     };
 
     const handleClose = () => {
