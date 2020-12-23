@@ -7,4 +7,5 @@ export default configureStore({
     auth: authReducer,
     tasting: tastingReducer,
   },
+  devTools: process.env.NODE_ENV !== "production",
 });
