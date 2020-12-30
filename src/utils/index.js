@@ -30,5 +30,5 @@ export function getFromLocalStorage(key) {
 export async function getConfig() {
 	const token = await getFromLocalStorage('token');
 
-	return { headers: { Authorization: `Bearer ${token}` }};
+	return token ? { headers: { Authorization: `Bearer ${token}` }} : null;
 }

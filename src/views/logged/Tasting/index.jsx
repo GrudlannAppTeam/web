@@ -8,32 +8,28 @@ import NewTastingRoom from '../../../components/NewTastingRoom';
 
 import styles from './index.module.scss';
 
-const Tasting = ({ getTastingRoomById, isLoading, isInitialize, activeTasting, tastingRoomId }) => {
+const Tasting = ({ getTastingRoomById, isLoading, activeTasting }) => {
     useEffect(() => {
-        if(!isInitialize && !activeTasting && tastingRoomId){
-            getTastingRoomById(tastingRoomId);
+        if(activeTasting && typeof activeTasting === 'number'){
+            getTastingRoomById(activeTasting);
         }
-    }, [getTastingRoomById, isInitialize]);
+    }, [activeTasting, getTastingRoomById]);
 
-    return (
+    return typeof activeTasting !== 'number' ? (
         <div className={styles.wrapper}>
             <div className={styles.container}>
-                { isLoading
-                    ? <div className={styles.loaderWrapper}><Spinner animation="border" color="light" /></div>
-                    : activeTasting
-                        ? <ActiveTastingRoom />
-                        : <NewTastingRoom />
+                {activeTasting
+                    ? <ActiveTastingRoom />
+                    : <NewTastingRoom />
                 }
             </div>
         </div>
-    );
+    ) : <div className={styles.loaderWrapper}><Spinner animation="border" color="light" /></div>;
 };
 
 const mapStateToProps = state => ({
     isLoading: state.tasting.isLoading,
-    isInitialize: state.tasting.isInitialize,
     activeTasting: state.tasting.activeTasting,
-    tastingRoomId: state.auth.user.tastingRoomId,
 });
 
 const mapDispatch = {

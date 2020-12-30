@@ -20,6 +20,8 @@ export const joinToTastingRoom = body => async dispatch => {
     try {
         const config = await getConfig();
         const response = await axios.post(`${apiUrl}api/tasting-rooms/join`, body, config);
+
+        dispatch(setActiveTasting(response.data.id));
     } catch (error) {
         return 'Użyłeś niepoprawnego kodu';
     }
@@ -57,6 +59,7 @@ export const addBeer = formData => async dispatch => {
 
         dispatch(addBeerToState(newBeer));
         dispatch(setIsLoading(false));
+        return;
     } catch (error) {
         dispatch(setIsLoading(false));
         return 'Cos poszło nie tak';
@@ -72,7 +75,6 @@ export const removeTasting = id => async dispatch => {
         await axios.delete(`${apiUrl}api/tasting-rooms/${id}`, config);
 
         dispatch(setActiveTasting(null));
-        localStorage.removeItem('tastingRoomId');
         dispatch(setIsLoading(false));
     } catch (error) {
         dispatch(setIsLoading(false));
@@ -106,7 +108,6 @@ export const closeTasting = id => async dispatch => {
         await axios.put(`${apiUrl}api/tasting-rooms`, { tastingRoomId: id, status: false }, config);
 
         dispatch(setActiveTasting(null));
-        localStorage.removeItem('tastingRoomId');
         dispatch(setIsLoading(false));
     } catch (error) {
         dispatch(setIsLoading(false));
