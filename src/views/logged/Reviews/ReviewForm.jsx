@@ -1,23 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { getConfig } from '../../../utils/index';
 import styles from './ReviewForm.module.scss';
 import ReviewQuestion from './ReviewQuestion';
-
-const propTypes = {
-    props: PropTypes.object,
-};
-const token = JSON.parse(localStorage.getItem('token'));
-
-axios.interceptors.request.use(
-    config => {
-        config.headers.authorization = `Bearer ${token.value}`;
-        return config;
-    },
-    error => {
-        return Promise.reject(error);
-    }
-);
 
 class ReviewForm extends React.Component {
     constructor () {
@@ -30,16 +16,12 @@ class ReviewForm extends React.Component {
         beerId: 0,
         hideQuestions: [],
     }
+
     handleClick = (e) => {
          this.setState({
              answerId: e.target.value,
              beerId: localStorage.getItem('beerId')
          });
-         axios
-      .post('https://grudlann-app.herokuapp.com/api/reviews', { beerId: this.state.beerId,
-      answerId: this.state.answerId})
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
     };
      componentDidMount() {
         axios.get('https://grudlann-app.herokuapp.com/api/questions/answers',)
@@ -66,7 +48,5 @@ class ReviewForm extends React.Component {
     );
   };
 };
-
-ReviewForm.propTypes = propTypes;
 
 export default ReviewForm;

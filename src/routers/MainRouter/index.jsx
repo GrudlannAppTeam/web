@@ -14,7 +14,7 @@ const MainRouter = () => {
             <Route exact path="/" name="Hello page" component={Home} />
             <Route exact path="/tasting" name="Active tasting" component={Tasting} />
             <Route exact path="/statistics" name="statistics" component={Statistics} />
-            <Route exact path="/review" name="review" component={ReviewForm}/>
+            <Route exact path="/review/:id" name="review" component={ReviewForm}/>
             <Route component={NotFound}/>
         </Switch>
     );

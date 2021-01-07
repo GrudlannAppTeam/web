@@ -21,7 +21,7 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
 
     const handleClick = id => () => {
         console.log(id);
-        history.push('/review');
+        history.push(`/review/${id}`);
         localStorage.setItem('beerId', id);
     };
 
