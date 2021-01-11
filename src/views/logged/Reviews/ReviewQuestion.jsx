@@ -7,16 +7,39 @@ const propTypes = {
     props: PropTypes.object,
 };
 
-const ReviewQuestion = (props) => {
-    return (
-        <div className={styles.wrapper}>
-            <h2 className={styles.question}>{props.name}</h2>
-            {props.answers.map(answer => (
-               <Button text={answer.name} value={answer.lp} onClick={props.handleClick}/>
+class ReviewQuestion extends React.Component {
+constructor(props){
+    super(props);
+
+    this.state={
+        answerId: 0,
+        beerId: 0,
+        hide: true,
+    };
+}
+ handleClick = (e) => {
+         this.setState({
+             answerId: e.target.value,
+             beerId: localStorage.getItem('beerId'),
+             hide: false,
+         });
+          console.log(this.state.answerId);
+          console.log(this.state.beerId);
+
+        };
+    
+    render(){
+
+    return ( 
+       this.state.hide ? (<div className={styles.wrapper}>
+            <h2 className={styles.question}>{this.props.name}</h2>
+            {this.props.answers.map(answer => (
+               <Button text={answer.name} value={answer.lp} onClick={this.handleClick}/>
             ))}
-        </div>
+        </div>): null
     );
 };
+}
 
 ReviewQuestion.propTypes = propTypes;
 
