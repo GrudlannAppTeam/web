@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import styles from './ReviewQuestion.module.scss';
 import Button from '../../../components/buttons/Button';
@@ -13,19 +14,24 @@ constructor(props){
 
     this.state={
         answerId: 0,
-        beerId: 0,
+        beerId:  localStorage.getItem('beerId'),
         hide: true,
     };
 }
  handleClick = (e) => {
          this.setState({
              answerId: e.target.value,
-             beerId: localStorage.getItem('beerId'),
              hide: false,
          });
-          console.log(this.state.answerId);
-          console.log(this.state.beerId);
-
+         const data = {
+             beerId: Number(this.state.beerId),
+             answerId: Number(e.target.value)
+         };
+         console.log(data);
+        axios
+      .post('https://grudlann-app.herokuapp.com/api/reviews', data, { headers: { 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token')).value}`,'Content-Type': 'application/json', 'Accept': '*/*' }})
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
         };
     
     render(){
