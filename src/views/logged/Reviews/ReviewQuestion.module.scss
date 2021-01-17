@@ -1,11 +1,20 @@
 @import '../../../styles/index.scss';
 
 .wrapper {
-    width: 100%;
-    height: 100%;
+    
     display: block;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
 }
+
 
 .question {
     color: aliceblue;
+    margin-top: 100px;
+}
+
+.questionbutton {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

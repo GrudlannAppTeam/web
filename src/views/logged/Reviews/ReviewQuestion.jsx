@@ -40,7 +40,7 @@ constructor(props){
        this.state.hide ? (<div className={styles.wrapper}>
             <h2 className={styles.question}>{this.props.name}</h2>
             {this.props.answers.map(answer => (
-               <Button text={answer.name} value={answer.lp} onClick={this.handleClick}/>
+               <Button className={styles.questionbutton} outline color='light' text={answer.name} value={answer.lp} onClick={this.handleClick}/>
             ))}
         </div>): null
     );
