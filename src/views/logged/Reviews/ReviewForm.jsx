@@ -23,7 +23,7 @@ class ReviewForm extends React.Component {
   render() {
      const { questions } = this.state;
     return (
-        <div className={styles.wrapper}>  
+        <div className={styles.wrapper}>
             <div>
                 <TextLink target='/tasting' className={styles.start} withIcon text='Wróć' />
                 {questions.map(question => (
@@ -32,7 +32,7 @@ class ReviewForm extends React.Component {
                         name={question.name}
                         answers={question.answers}
                     />
-                ))}    
+                ))}
             </div>
         </div>
     );
