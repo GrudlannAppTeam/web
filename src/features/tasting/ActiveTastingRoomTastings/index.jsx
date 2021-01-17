@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addBeer, startTasting, removeTasting, closeTasting } from '../../../redux/methods/tasting';
 import { useForm } from 'react-hook-form';
@@ -16,9 +17,12 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
     const [ reatedBeersIds, setRatedBeersIds ] = useState([]);
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
+    const history = useHistory();
 
     const handleClick = id => () => {
         console.log(id);
+        history.push(`/review/${id}`);
+        localStorage.setItem('beerId', id);
     };
 
     const handleClose = () => {
