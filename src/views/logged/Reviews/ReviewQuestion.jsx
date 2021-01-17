@@ -33,10 +33,10 @@ constructor(props){
       .then(res => console.log(res))
       .catch(err => console.log(err));
         };
-    
+
     render(){
 
-    return ( 
+    return (
        this.state.hide ? (<div className={styles.wrapper}>
             <h2 className={styles.question}>{this.props.name}</h2>
             {this.props.answers.map(answer => (
