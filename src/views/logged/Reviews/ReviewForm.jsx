@@ -3,8 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import styles from './ReviewForm.module.scss';
 import ReviewQuestion from './ReviewQuestion';
-
-//const token = JSON.parse(localStorage.getItem('token'));
+import TextLink from '../../../components/buttons/TextLink/index';
 
 class ReviewForm extends React.Component {
 
@@ -24,15 +23,16 @@ class ReviewForm extends React.Component {
   render() {
      const { questions } = this.state;
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.container}>
+        <div className={styles.wrapper}>  
+            <div>
+                <TextLink target='/tasting' className={styles.start} withIcon text='Wróć' />
                 {questions.map(question => (
                     <ReviewQuestion
                         key={question.name}
                         name={question.name}
                         answers={question.answers}
                     />
-                ))}
+                ))}    
             </div>
         </div>
     );
