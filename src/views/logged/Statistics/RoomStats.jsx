@@ -13,7 +13,7 @@ class RoomStats extends React.Component {
     };
 
      componentDidMount() {
-        axios.get(`https://grudlann-app.herokuapp.com/api/reviews/statistics/${localStorage.getItem('RoomId')}`, { headers: { 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token')).value}`, 'Accept': '*/*' }})
+        axios.get(`https://grudlann-app.herokuapp.com/api/reviews/statistics/${localStorage.getItem('StatsId')}`, { headers: { 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token')).value}`, 'Accept': '*/*' }})
         .then((response) => {
             console.log(response);
             this.setState({

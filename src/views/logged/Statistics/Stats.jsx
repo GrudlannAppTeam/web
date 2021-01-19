@@ -16,7 +16,7 @@ class Statistics extends React.Component {
      handleClick = id => () => {
         console.log(id);
        this.props.history.push(`/stats/${id}`);
-        localStorage.setItem('RoomId', id);
+        localStorage.setItem('StatsId', id);
     };
 
      componentDidMount() {
