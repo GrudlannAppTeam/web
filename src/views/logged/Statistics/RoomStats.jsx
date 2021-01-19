@@ -27,7 +27,14 @@ class RoomStats extends React.Component {
         <div className={styles.wrapper}>  
             <div>
                 <TextLink target='/statistics' className={styles.start} withIcon text='Wróć' />
-                               
+                  <h2 className={styles.question}>Oceny</h2>  
+                   {roomStats.map(stats => (
+                       <div className={styles.wrapper2}>
+                       <p className={styles.question}>Piwo: {stats.beer.name}</p>
+                       <p className={styles.question}>Pytanie: {stats.answer.question.name}</p>
+                       <p className={styles.question}>Odpowiedź: {stats.answer.name}, za {stats.answer.lp} pkt.</p> 
+                       </div>
+                ))}            
             </div>
         </div>
     );

@@ -27,6 +27,7 @@ class Statistics extends React.Component {
                 stats: response.data,
             });
         }).catch(err => console.log(err.message));
+        
     }
   render() {
      const { stats, tastingRooms } = this.state;
@@ -34,7 +35,7 @@ class Statistics extends React.Component {
         <div className={styles.wrapper}>  
             <div>
                 <TextLink target='/' className={styles.start} withIcon text='Strona główna' />
-                <h2 className={styles.question}>Twoja lista degustacji</h2>
+                <h2 className={styles.question}>Sprawdź swoje odpowiedzi</h2>
                  {stats.forEach(function(item){
                      const i = tastingRooms.findIndex(x => x.name === item.tastingRoom.name);
                      if(i <= -1){
@@ -45,7 +46,10 @@ class Statistics extends React.Component {
                  }
                   {tastingRooms.map(tastingRoom => (
                     <Button key={tastingRoom.id} className={styles.questionbutton} outline color='light' text={tastingRoom.name} onClick={this.handleClick(tastingRoom.id)}/>
-                ))}  
+                ))} 
+                 <h2 className={styles.question}>Ogólne Statystyki</h2>
+                 <p className={styles.question}>Liczba udziału w degustacjach: {tastingRooms.length}</p>
+                 <p className={styles.question}>Liczba oddanych odpowiedzi: {stats.length}</p> 
             </div>
         </div>
     );
