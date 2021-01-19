@@ -32,7 +32,7 @@
         "camelcase": "error",
         "no-mixed-spaces-and-tabs": "error",
         "no-multiple-empty-lines": ["error", { "max": 1 }],
-        "no-trailing-spaces": "error",
+        "no-trailing-spaces": "warn",
         "no-var": "error",
         "no-useless-constructor": "error",
         "prefer-rest-params": "error",
