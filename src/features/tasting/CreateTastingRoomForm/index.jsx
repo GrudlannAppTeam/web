@@ -31,7 +31,7 @@ const CreateTastingRoomForm = ({ isLoading, setIsLoading, create }) => {
             label='Nazwa'
             name='name'
             register={register}
-            title='Utwórz nową degustację'
+            title='Utwórz nową salę degustacyjną'
         />
     );
 };

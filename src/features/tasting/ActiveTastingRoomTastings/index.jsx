@@ -77,14 +77,14 @@ const ActiveTastingRoomTastings = ({ activeTasting, addBeer, startTasting, remov
             </div>
             {
                 isTastingStarted && isOwner &&
-                    <Button small outline color='light' onClick={handleClose} text='Zamknij degustacje' className='mb-2 w-100' isLoading={false}/>
+                    <Button small outline color='light' onClick={handleClose} text='Zamknij obecną salę' className='mb-2 w-100' isLoading={false}/>
             }
             {
                 !isTastingStarted && isOwner &&
                     <>
                         <Button onClick={toggle} small outline color='light' text='Dodaj piwo' className='mb-2 w-100' isLoading={false}/>
                         <div className='d-flex'>
-                            <Button small outline onClick={handleStart} color='light' text='Wystartuj degustacje' className='mr-2 w-50' isLoading={false}/>
+                            <Button small outline onClick={handleStart} color='light' text='Wystartuj obecną salę' className='mr-2 w-50' isLoading={false}/>
                             <Button small outline onClick={handleRemove} color='light' text='Usuń degustacje' className='w-50' isLoading={false}/>
                         </div>
                     </>

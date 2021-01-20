@@ -26,7 +26,7 @@ const NewTastingRoom = () => {
             <div className={styles.container}>
                 <TextLink target='/' withIcon text='Strona główna' />
                 <div className={styles.buttons}>
-                    <Button color={activeForm === 'create' ? 'active' : 'light'} small outline onClick={setActiveFormByType('create')} text='Stwórz nową degustację' />
+                    <Button color={activeForm === 'create' ? 'active' : 'light'} small outline onClick={setActiveFormByType('create')} text='Stwórz nową salę degustacyjną' />
                     <Button color={activeForm === 'join' ? 'active' : 'light'} small outline onClick={setActiveFormByType('join')} text='Dołącz za pomocą kodu' />
                 </div>
                 {activeForm === 'join' && <JoinTastingRoomForm isLoading={isLoading} setIsLoading={setIsLoading} />}
